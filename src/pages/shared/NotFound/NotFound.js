@@ -1,9 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import error from '../../../images/404.png'
+import './NotFound.css';
+
+
 
 const NotFound = () => {
     return (
-        <div>
-            <h2>40404404004</h2>
+        <div className='container error'>
+            <Link to='/'>
+                <img src={error} alt="" />
+            </Link>
         </div>
     );
 };

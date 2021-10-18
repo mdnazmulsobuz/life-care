@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import AboutUs from './pages/About/AboutUs/AboutUs';
 import Contact from './pages/Contact/Contact';
+import Details from './pages/Details/Details';
 import Home from './pages/Home/Home/Home';
 import Login from './pages/login/Login/Login';
 import Services from './pages/Service/Services/Services';
@@ -32,6 +33,9 @@ function App() {
             </Route>
             <Route path ='/login'>
               <Login></Login>
+            </Route>            
+            <Route path ='/details/:serviceId'>
+              <Details></Details>
             </Route>            
             <Route path ='*'>
               <NotFound></NotFound>
