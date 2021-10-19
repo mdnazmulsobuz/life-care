@@ -15,7 +15,7 @@ const Details = () => {
             const singleService = data.find(service => service.id === id)
             setDetail(singleService)
         })
-    },[id,detail]);
+    },[id]);
 
   
     return (
@@ -31,7 +31,7 @@ const Details = () => {
                             <Card.Body>
                                 <Card.Title className='text-success fs-4'>{detail.title}</Card.Title>
                                 <Card.Text>
-                                    <p className='px-5'>{detail.details}</p>
+                                    {detail.details}
                                 </Card.Text>
                             </Card.Body>
                             <Card.Footer>
