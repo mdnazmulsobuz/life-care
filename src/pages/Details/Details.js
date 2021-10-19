@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Details = () => {
     const {id} = useParams();
@@ -33,7 +34,11 @@ const Details = () => {
                                     <p className='px-5'>{detail.details}</p>
                                 </Card.Text>
                             </Card.Body>
-                            <Card.Footer><button className='btn btn-primary px-5 py-2 my-3 fs-5'>Book Appointment</button></Card.Footer>
+                            <Card.Footer>
+                                <Link to='/contact'>
+                                    <button className='btn btn-primary px-5 py-2 my-3 fs-5'>Book Appointment</button>
+                                </Link>
+                            </Card.Footer>
                         </Card>
                     </div>
                 </div>

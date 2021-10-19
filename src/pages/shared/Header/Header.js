@@ -21,7 +21,7 @@ const Header = () => {
                             <Nav.Link onClick={logOut} bg='light'>logout</Nav.Link>:
                             <Nav.Link as={Link} to='/login'>Login</Nav.Link>
                         }
-                        <Nav.Link >{user?.displayName}</Nav.Link>
+                        <Button className='btn btn-light'>{user?.displayName}</Button>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
