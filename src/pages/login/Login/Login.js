@@ -14,6 +14,8 @@ const Login = () => {
     const {signInUsingGoogle} =useAuth();
     const location = useLocation();
     const histroy = useHistory();
+
+    // Redirect to existong or homepage
     const redirect_uri = location.state?.from || '/home';
     const handleGoogleLogin = () =>{
         signInUsingGoogle()
@@ -21,7 +23,8 @@ const Login = () => {
             histroy.push(redirect_uri);
         })
     };
-
+    
+    // toogle login and register 
     const toggleLogin = tg =>{
         setIsLogin(tg.target.checked)
     }
@@ -38,9 +41,11 @@ const Login = () => {
         setPassword(ps.target.value);
     }
     const auth = getAuth();
+
+    //  handle error with password value. 
     const handleRegistration= (re) =>{
         re.preventDefault();
-        console.log(email, password);
+        
         if(password.length < 6){
             setError('Password Must be at least 6 characters long.')
             return;
@@ -54,11 +59,11 @@ const Login = () => {
         }
     };
     
+    // handle login process and error null
     const processLogin = (email, password) =>{
         signInWithEmailAndPassword(auth, email, password)
         .then(result=>{
-            const user = result.user;
-            console.log(user);
+            histroy.push(redirect_uri);
             setError('')
         })  
         .catch(error =>{
@@ -66,16 +71,17 @@ const Login = () => {
         })
     }
 
+    //  Display user name 
     const setUserName = () =>{
         updateProfile(auth.currentUser, {displayName: name})
         .then(result =>{})
     }
 
+    // Register for new user
     const registerNewUser = (email, password) =>{
         createUserWithEmailAndPassword(auth, email, password)
         .then(result=>{
-            const user = result.user;
-            console.log(user);
+            histroy.push(redirect_uri);
             setError('');
             setUserName();
         })  
@@ -91,6 +97,7 @@ const Login = () => {
                 <div className='col-md-4'></div>
                 <div className='col-md-4'>
                     <Form onSubmit={handleRegistration} >
+                        {/* dynamic handle */}
                    {!isLogin && <FloatingLabel
                         controlId="floatingInput"
                         label="Your Name"
@@ -106,6 +113,7 @@ const Login = () => {
                     <FloatingLabel controlId="floatingPassword" label="Password">
                         <Form.Control onBlur = {handlePasswordChange} type="password" placeholder="Password" required/>
                     </FloatingLabel>
+                    {/* login register buuton */}
                     <Form.Check onChange={toggleLogin} className='text-start py-3' type="checkbox" label=" Alreday Registered?" />
                     <div className='text-danger'>{error}</div>
                     <Button className='my-3 px-4' variant="primary" type="register">{isLogin ?'Login' : "Register"}</Button>
