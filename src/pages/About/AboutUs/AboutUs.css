@@ -1,0 +1,11 @@
+.title{
+    background: url(https://cdn.pixabay.com/photo/2021/02/03/23/09/hallway-5979689_960_720.jpg);
+    padding: 80px 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-transform: uppercase;
+    color: #1A316B;
+    font-weight: 700;
+    font-size: 45px;
+}

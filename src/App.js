@@ -34,7 +34,7 @@ function App() {
             <Route path ='/login'>
               <Login></Login>
             </Route>            
-            <Route path ='/details/:serviceId'>
+            <Route path ='/details/:id'>
               <Details></Details>
             </Route>            
             <Route path ='*'>

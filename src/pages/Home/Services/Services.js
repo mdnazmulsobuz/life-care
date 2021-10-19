@@ -14,9 +14,9 @@ const Services = () => {
            <h2>Our Services</h2>
            <div className='row'>
            {
-                services.slice(0,6).map(srv => <Service
-                    key= {srv.id}
-                    service={srv}
+                services.slice(0,6).map(service => <Service
+                    key= {service.id}
+                    service={service}
                 ></Service>)
             }
            </div>
